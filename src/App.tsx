@@ -1,15 +1,23 @@
-import React from 'react';
-import {getAllJSDocTagsOfKind} from 'typescript';
+import React, {useState} from 'react';
+import {parse} from './util/parse';
+import {sampleData} from './sampleData';
 import './App.css';
 
 function App() {
-  const handleSubmit = () =>{
-    console.log('test')
-  }
+  const [plays, setPlays] = useState<string>(sampleData);
+  const handleSubmit = () => {
+    parse(plays);
+  };
   return (
     <div className="App">
-      <textarea className="textBox"></textarea>
-      <button className = 'submit' type = 'button' onClick = {handleSubmit}>Submit</button>
+      <textarea
+        value={plays}
+        onChange={(e) => setPlays(e.target.value)}
+        className="textBox"
+      ></textarea>
+      <button className="submit" type="button" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 }
