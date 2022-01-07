@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {parse} from './util/parse';
-import {sampleData} from './sampleData';
+import {sampleData, sampleSubData} from './sampleData';
 import './App.css';
 
 function App() {
   const [plays, setPlays] = useState<string>(sampleData);
   const handleSubmit = () => {
-    parse(plays);
+    const results = parse(plays);
+    console.log(results)
   };
   return (
     <div className="App">

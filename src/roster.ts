@@ -26,7 +26,7 @@ export class Lineup {
   FTAagainst: number;
 
   constructor(players: player[]) {
-    this.players = players;
+    this.players = [...players].sort((a,b)=> a.name>b.name ? 1 : a.name < b.name ? -1 : 0 )
     this.pointsFor = 0;
     this.pointsAgainst = 0;
     this.dRebFor = 0;

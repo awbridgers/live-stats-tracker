@@ -15,4 +15,3 @@ export const timeToSeconds = (time:string):number =>{
   return min + sec
 }
 
-timeToSeconds('20:00')

@@ -14,6 +14,7 @@ export const formatName = (person: player): string => {
 
 //Take the names found in the play by play data and
 //convert them back into the player objects found in the roster
+//!NOTE: The names in the Play by Play are in the ALL CAPS
 
 export const findPlayer = (shortHand: string): player => {
   //shorthand will be in format of "5 Smith J"
@@ -23,7 +24,8 @@ export const findPlayer = (shortHand: string): player => {
   const lastName = array.join(' ');
   const player = roster.find(
     (baller) =>
-      baller.name.includes(lastName) && baller.number.toFixed(0) === number
+      baller.name.toLowerCase().includes(lastName.toLowerCase()) &&
+      baller.number.toFixed(0) === number
   );
   if (!player) {
     throw Error('No player found');
