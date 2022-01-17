@@ -4,14 +4,22 @@ import {sampleData, sampleSubData} from './sampleData';
 import './App.css';
 import { Lineup } from './roster';
 
+
 function App() {
   const [plays, setPlays] = useState<string>(sampleData);
   const [results, setResults] = useState<Lineup[]>([])
+  const [show, setShow] = useState<boolean>(false)
   const handleSubmit = () => {
     const results = parse(plays);
     console.log(results)
     setResults(results);
   };
+  if(show){
+    return (
+      <div className = 'App'>
+      </div>
+    )
+  }
   return (
     <div className="App">
       <textarea

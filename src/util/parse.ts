@@ -24,8 +24,13 @@ export const parse = (data: string): Lineup[] => {
       formattedRoster.find((person) => person.toUpperCase().includes(player))
         ? true
         : false;
+    const made = details.includes('made');
+    const paint = details.includes('in the paint');
+    const second = details.includes('second chance');
+    const fromTO = details.includes('from turnover');
     //START PLAY BY PLAY LINE EVALUATION HERE
-    if (player) {  //for now, no way to handle "team" plays with no player
+    if (player) {
+      //for now, no way to handle "team" plays with no player
       if (details.includes('substitution out')) {
         if (teamPlay) {
           //we only care about our teams subs
@@ -35,7 +40,7 @@ export const parse = (data: string): Lineup[] => {
           if (rmIndex !== -1) {
             //remove the player
             currentLineup.splice(rmIndex, 1);
-          }else{
+          } else {
             throw Error(`Error with substitution at ${time}`);
           }
         }
@@ -64,15 +69,33 @@ export const parse = (data: string): Lineup[] => {
           }
         }
       } else if (details.includes('2pt FG')) {
-        const paint = details.includes('in the paint');
-        const made = details.includes('made');
-        results[currentIndex].addBasket(teamPlay, made, paint, '2');
+        results[currentIndex].addBasket(
+          teamPlay,
+          made,
+          paint,
+          second,
+          fromTO,
+          '2'
+        );
       } else if (details.includes('3pt FG')) {
-        const made = details.includes('made');
-        results[currentIndex].addBasket(teamPlay, made, false, '3');
+        results[currentIndex].addBasket(
+          teamPlay,
+          made,
+          false,
+          second,
+          fromTO,
+          '3'
+        );
       } else if (details.includes('free throw')) {
         const made = details.includes('made');
-        results[currentIndex].addBasket(teamPlay, made, false, 'ft');
+        results[currentIndex].addBasket(
+          teamPlay,
+          made,
+          false,
+          second,
+          fromTO,
+          'ft'
+        );
       } else if (details.includes('assist')) {
         results[currentIndex].addAssist(teamPlay);
       } else if (details.includes('turnover')) {
