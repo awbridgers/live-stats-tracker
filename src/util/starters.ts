@@ -1,4 +1,4 @@
-import {roster, formattedRoster} from '../roster';
+import {formattedRoster} from '../roster';
 import {player} from '../types';
 import {findPlayer} from './formatName';
 

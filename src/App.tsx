@@ -49,6 +49,7 @@ function App() {
         value={plays}
         onChange={(e) => setPlays(e.target.value)}
         className="textBox"
+        placeholder='Enter the play by play data here, starting with both teams starters.'
       ></textarea>
       <button className="submit" type="button" onClick={handleSubmit}>
         Submit
