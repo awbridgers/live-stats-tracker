@@ -104,6 +104,13 @@ export const parse = (data: string): Lineup[] => {
         const type = details.includes('defensive') ? 'd' : 'o';
         results[currentIndex].addRebound(teamPlay, type);
       }
+    }else{
+      //cases where player is null
+      if(details === 'OVERTIME'){
+        //to make time work accurately, add 0 and 05:00 time to current lineup
+        results[currentIndex].addTime(time);
+        results[currentIndex].addTime('05:00');
+      }
     }
   });
   //All plays finished, add 0 to the last lineup's time

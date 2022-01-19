@@ -13,6 +13,7 @@ function App() {
   const [show, setShow] = useState<boolean>(false);
   const handleSubmit = () => {
     const results = parse(plays);
+    console.log(results)
     setResults(results);
     setShow(true);
   };

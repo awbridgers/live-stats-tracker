@@ -1,8 +1,15 @@
+//the following are headers found on the livestats header
+//at the top of each page, they will be removed from the
+//text so that 1 seamless copy/paste can be used
+
 const gameDetails =
   /(Official Basketball Play by Play)(.|\n)*?(Officials: .+)/gi;
 const header = /(Game Time)(.+)(Score Diff)(.+)/gi;
 const gameTime = /\d+:\d+/;
+
+//a function to fix the data into an easier format to manipulate
 export const fixData = (data: string) => {
+  //remove the header data
   const playArray = data
     .replace(gameDetails, '')
     .replace(header, '')
@@ -12,7 +19,7 @@ export const fixData = (data: string) => {
   playArray
     .filter((x) => x !== '')
     .forEach((line) => {
-      if(gameTime.test(line)){
+      if(gameTime.test(line)||line==='OVERTIME'){
         results.push(line)
       }
       else{
