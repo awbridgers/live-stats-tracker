@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {parse} from './util/parse';
-import {sampleData, sampleSubData} from './sampleData';
 import './App.css';
 import {Lineup} from './roster';
 import Table from 'rc-table';
@@ -9,7 +8,7 @@ import {calcTime} from './util/calculateTime';
 import {calcTotal} from './util/calculateTotal';
 
 function App() {
-  const [plays, setPlays] = useState<string>(sampleData);
+  const [plays, setPlays] = useState<string>('');
   const [results, setResults] = useState<Lineup[]>([]);
   const [show, setShow] = useState<boolean>(false);
   const handleSubmit = () => {
