@@ -197,7 +197,7 @@ export const roster: player[] = [
     number: 44,
   },
   {
-    name: 'Anthony Mathis',
+    name: 'Anthony Mathis Jr',
     number: 45,
   },
   {
