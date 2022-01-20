@@ -30,24 +30,25 @@ export const parse = (data: string): Lineup[] => {
     const fromTO = details.includes('from turnover');
     //START PLAY BY PLAY LINE EVALUATION HERE
     if (player) {
-      //for now, no way to handle "team" plays with no player
-      if (details.includes('substitution out')) {
+      if (details.includes('substitution')) {
         if (teamPlay) {
-          //we only care about our teams subs
-          const rmIndex = currentLineup.findIndex(
-            (x) => x.name === findPlayer(player!).name
-          );
-          if (rmIndex !== -1) {
-            //remove the player
-            currentLineup.splice(rmIndex, 1);
-          } else {
-            throw Error(`Error with substitution at ${time}`);
+          //we only care about our team's substituions
+          if (details.includes('substitution out')) {
+            //we only care about our teams subs
+            const rmIndex = currentLineup.findIndex(
+              (x) => x.name === findPlayer(player!).name
+            );
+            if (rmIndex !== -1) {
+              //remove the player
+              currentLineup.splice(rmIndex, 1);
+            } else {
+              throw Error(`Error with substitution at ${time}`);
+            }
+          } else if (details.includes('substitution in')) {
+            const addPlayer = findPlayer(player);
+            currentLineup.push(addPlayer);
           }
-        }
-      } else if (details.includes('substitution in')) {
-        if (teamPlay) {
-          const addPlayer = findPlayer(player);
-          currentLineup.push(addPlayer);
+          //after subbing players in and out, make the lineup
           if (currentLineup.length === 5) {
             const outTime = time === '20:00' ? '00:00' : time; //for subs that change at the half
             const lineupIndex = results.findIndex((x) =>
@@ -104,9 +105,9 @@ export const parse = (data: string): Lineup[] => {
         const type = details.includes('defensive') ? 'd' : 'o';
         results[currentIndex].addRebound(teamPlay, type);
       }
-    }else{
+    } else {
       //cases where player is null
-      if(details === 'OVERTIME'){
+      if (details === 'OVERTIME') {
         //to make time work accurately, add 0 and 05:00 time to current lineup
         results[currentIndex].addTime(time);
         results[currentIndex].addTime('05:00');
