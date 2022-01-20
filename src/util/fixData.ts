@@ -7,6 +7,8 @@ const gameDetails =
 const header = /(Game Time)(.+)(Score Diff)(.+)/gi;
 const gameTime = /\d+:\d+/;
 
+const keepThese = ['OVERTIME', 'END OF PERIOD'];
+
 //a function to fix the data into an easier format to manipulate
 export const fixData = (data: string) => {
   //remove the header data
@@ -19,7 +21,7 @@ export const fixData = (data: string) => {
   playArray
     .filter((x) => x !== '')
     .forEach((line) => {
-      if(gameTime.test(line)||line==='OVERTIME'){
+      if(gameTime.test(line)||line.includes('END OF')){
         results.push(line)
       }
       else{

@@ -16,8 +16,9 @@ export const parse = (data: string): Lineup[] => {
   let currentLineup: player[] = [...starters.players];
   let results: Lineup[] = [starters];
   let currentIndex = 0;
+  let half = 1;
   //parse through each line and extract the data.
-  playData.forEach((play) => {
+  playData.forEach((play, playIndex) => {
     const {time, player, details} = getPlayComponents(play);
     const teamPlay =
       player &&
@@ -50,7 +51,6 @@ export const parse = (data: string): Lineup[] => {
           }
           //after subbing players in and out, make the lineup
           if (currentLineup.length === 5) {
-            const outTime = time === '20:00' ? '00:00' : time; //for subs that change at the half
             const lineupIndex = results.findIndex((x) =>
               equals(x.players, currentLineup)
             );
@@ -59,11 +59,11 @@ export const parse = (data: string): Lineup[] => {
               const newLineup = new Lineup(currentLineup);
               newLineup.addTime(time); //sub in time
               results.push(newLineup);
-              results[currentIndex].addTime(outTime); //subOut TIme
+              results[currentIndex].addTime(time); //subOut TIme
               currentIndex = results.length - 1;
             } else {
               //the lineup already exists
-              results[currentIndex].addTime(outTime); //subOut Time
+              results[currentIndex].addTime(time); //subOut Time
               currentIndex = lineupIndex;
               results[lineupIndex].addTime(time); //sub in time
             }
@@ -107,14 +107,20 @@ export const parse = (data: string): Lineup[] => {
       }
     } else {
       //cases where player is null
-      if (details === 'OVERTIME') {
-        //to make time work accurately, add 0 and 05:00 time to current lineup
-        results[currentIndex].addTime(time);
-        results[currentIndex].addTime('05:00');
+      if (details === 'END OF PERIOD') {
+        if (half === 1) {
+          results[currentIndex].addTime('00:00');
+          results[currentIndex].addTime('20:00');
+          half = 2;
+        } else {
+          //end of the second or OT
+          results[currentIndex].addTime('00:00');
+          results[currentIndex].addTime('05:00');
+        }
+      } else if (details === 'END OF GAME') {
+        results[currentIndex].addTime('00:00');
       }
     }
   });
-  //All plays finished, add 0 to the last lineup's time
-  results[currentIndex].addTime('00:00');
   return results;
 };
