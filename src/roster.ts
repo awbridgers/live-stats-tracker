@@ -181,6 +181,10 @@ export const roster: player[] = [
     number: 25,
   },
   {
+    name: 'Damari Monsanto',
+    number: 30,
+  },
+  {
     name: 'Alondes Williams',
     number: 31,
   },
