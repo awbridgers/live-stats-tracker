@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+## Live Stats Tracker
+This app takes play by play data from NCAA basketball games and compiles the stats for each lineup into a table form. The app is live for the 2021-22 Wake Forest Basketball Team [here](https://awbridgers.github.io/live-stats-tracker/).
+___
+### How to Use
+If you would like to use this app for your own team, you will need  to clone it and change the roster variable found inside the *roster.ts* file to the roster of the team you want to track. 
+Make sure each player in the roster array is of form:  ```{name: 'Full Name', number: 0}```
+#### Instructions
+1. Find the Official Box Score from the game powered by LiveStats. This can often be found on the team's schedule on their website listed as *Box Score (PDF)* or *PDF Box Score*.  Example:
+![Example](src/images/pdfBoxScore.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. Open the Box Score and scroll down to the start of the play by play information. Copy **EVERYTHING** under *Quarter Starters* up to and including the end of the half, denoted by *END OF PERIOD*. Copy and paste that information into the text box of the tracker.
+3. For the second half and overtime, copy from the time of the first play through the end of the period, denoted by either *END OF PERIOD* or *END OF GAME*. Do not copy the starter information for the second half or OT, that info is only needed for the initial lineup on the court. Paste that information in the text box as well.
+4. Press *Submit* 
 
-## Available Scripts
+Here is a full example:
 
-In the project directory, you can run:
+<div style='position:relative; padding-bottom:calc(56.25% + 44px)'><iframe src='https://gfycat.com/ifr/FearfulQuickHake' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+___
+### Author
+Adam Bridgers
