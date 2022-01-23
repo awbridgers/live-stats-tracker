@@ -14,7 +14,7 @@ Make sure each player in the roster array is of form:  ```{name: 'Full Name', nu
 
 Here is a full example:
 
-<div style='position:relative; padding-bottom:calc(56.25% + 44px)'><iframe src='https://gfycat.com/ifr/FearfulQuickHake' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
+![example](https://thumbs.gfycat.com/FearfulQuickHake-size_restricted.gif)
 
 ___
 ### Author
