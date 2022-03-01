@@ -100,7 +100,26 @@ export const parse = (data: string): Lineup[] => {
       } else if (details.includes('assist')) {
         results[currentIndex].addAssist(teamPlay);
       } else if (details.includes('turnover')) {
-        results[currentIndex].addTurnover(teamPlay);
+        //special case b/c steal and turnover can appear on the same line
+        if(details.includes('steal')){
+          //determine the first word of the play (filter in case 1st char is a space)
+          const [first] = details.split(' ').filter(x=>x!=='')
+          console.log(first)
+          //if its a steal, give a TO to opposite of teamPlay
+          if(first === 'steal'){
+            results[currentIndex].addTurnover(!teamPlay)
+          }
+          //if its TO, give TO to teamPlay
+          else{
+            results[currentIndex].addTurnover(teamPlay)
+          }
+        }
+        else{
+          //no steal involved
+          results[currentIndex].addTurnover(teamPlay);
+        }
+
+        
       } else if (details.includes('rebound')) {
         const type = details.includes('defensive') ? 'd' : 'o';
         results[currentIndex].addRebound(teamPlay, type);

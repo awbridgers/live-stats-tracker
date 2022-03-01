@@ -138,6 +138,7 @@ export class Lineup {
   addTurnover = (teamPlay: boolean) => {
     const key = teamPlay ? 'turnoversFor' : 'turnoversAgainst';
     this[key] += 1;
+    
   };
   addAssist = (teamPlay: boolean) => {
     const key = teamPlay ? 'assistsFor' : 'assistsAgainst';
