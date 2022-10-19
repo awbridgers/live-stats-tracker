@@ -150,9 +150,9 @@ export class Lineup {
 }
 
 export const roster: player[] = [
-  {name: 'Jake LaRavia', number: 0},
+  {name: 'Lucas Taylor', number: 0},
   {
-    name: 'Isaiah Mucius',
+    name: 'Tyree Appleby',
     number: 1,
   },
   {name: 'Cameron Hildreth', number: 2},
@@ -162,23 +162,23 @@ export const roster: player[] = [
     number: 4,
   },
   {
-    name: 'Carter Whitt',
+    name: 'Jao Ituka',
+    number: 10,
+  },
+  {
+    name: 'Andrew Carr',
     number: 11,
   },
   {
-    name: 'Dallas Walton',
+    name: 'Robert McCray',
     number: 13,
   },
   {
-    name: 'Khadim Sy',
+    name: 'Davion Bradford',
     number: 20,
   },
   {
-    name: 'Lucas Taylor',
-    number: 23,
-  },
-  {
-    name: 'Robert McCray',
+    name: 'Zach Keller',
     number: 25,
   },
   {
@@ -186,23 +186,19 @@ export const roster: player[] = [
     number: 30,
   },
   {
-    name: 'Alondes Williams',
-    number: 31,
-  },
-  {
     name: 'Matthew Marsh',
     number: 33,
+  },
+  {
+    name: 'Bobi Klintman',
+    number: 34,
   },
   {
     name: 'RJ Kennah',
     number: 40,
   },
   {
-    name: 'Luc Robinson',
-    number: 44,
-  },
-  {
-    name: 'Anthony Mathis Jr',
+    name: 'Xiaolong Xu',
     number: 45,
   },
   {
@@ -214,13 +210,10 @@ export const roster: player[] = [
     number: 52,
   },
   {
-    name: 'Miles Lester',
+    name: 'Owen Kmety',
     number: 55,
   },
-  {
-    name: 'Tariq Ingraham',
-    number: 10,
-  },
 ];
+
 
 export const formattedRoster: string[] = roster.map((name) => formatName(name));
