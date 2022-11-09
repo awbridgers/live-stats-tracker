@@ -2,6 +2,7 @@
   text-align: center;
   background-color: black;
   height: 100vh;
+  margin-top: 20px;
   padding-top: env(safe-area-inset-top);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
@@ -27,4 +28,13 @@
   color:white;
   font-size: 14px;
   text-align: center;
+}
+.sliderDiv{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 100px;
+}
+.slider{
+  margin: 0px 5px;
 }

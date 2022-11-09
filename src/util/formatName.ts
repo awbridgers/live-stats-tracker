@@ -1,5 +1,5 @@
 import {player} from '../types';
-import {roster} from '../roster';
+import {roster, womenRoster} from '../roster';
 
 //Take the names found in the roster and convert them
 //to the form found in the play by play data, which is
@@ -16,13 +16,14 @@ export const formatName = (person: player): string => {
 //convert them back into the player objects found in the roster
 //!NOTE: The names in the Play by Play are in the ALL CAPS
 
-export const findPlayer = (shortHand: string): player => {
+export const findPlayer = (shortHand: string, men: boolean): player => {
+  const theRoster = men ? roster : womenRoster
   //shorthand will be in format of "5 Smith J"
   const array = shortHand.split(' ');
   const number = array.shift();
   const firstName = array.pop();
   const lastName = array.join(' ');
-  const player = roster.find(
+  const player = theRoster.find(
     (baller) =>
       baller.name.toLowerCase().includes(lastName.toLowerCase()) &&
       baller.number.toFixed(0) === number

@@ -1,4 +1,4 @@
-import {formattedRoster} from '../roster';
+import {formattedRoster, formattedWRoster} from '../roster';
 import {player} from '../types';
 import {findPlayer} from './formatName';
 
@@ -7,8 +7,8 @@ import {findPlayer} from './formatName';
 //convert the strings into an array of individual players, then determine which
 //array contains players found in the roster.
 
-export const findStarters = (array: string[]): player[] => {
-  const checkRoster = formattedRoster.join(' ');
+export const findStarters = (array: string[], men: boolean): player[] => {
+  const checkRoster = men ? formattedRoster.join(' '): formattedWRoster.join(' ');
   const teams = array.map((string) => string.match(/\d+(\s[a-zA-Z]+)+/g));
   const [starters] = teams.filter((starters) => {
     let checker = true;
@@ -22,5 +22,5 @@ export const findStarters = (array: string[]): player[] => {
   if (!starters) {
     throw Error('There was an error loading the starters');
   }
-  return starters.map((shortHand) => findPlayer(shortHand));
+  return starters.map((shortHand) => findPlayer(shortHand, men));
 };

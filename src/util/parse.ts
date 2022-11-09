@@ -3,26 +3,29 @@ import {player} from '../types';
 import {getPlayComponents} from './playComponents';
 import {findStarters} from './starters';
 import {fixData} from './fixData';
-import {formattedRoster} from '../roster';
+import {formattedRoster, formattedWRoster} from '../roster';
 import {findPlayer} from './formatName';
 import {equals} from './lineupEqual';
 
-export const parse = (data: string): Lineup[] => {
+export const parse = (data: string, men: boolean): Lineup[] => {
   //get starter data and pbp data
   const {starterData, playData} = fixData(data);
-  const starters = new Lineup(findStarters(starterData));
-  starters.addTime('20:00');
+  const starters = new Lineup(findStarters(starterData, men));
+  const startTime = men ? '20:00' : '10:00'    //women play 10 minutes quarters
+  starters.addTime(startTime);
   //keep track of results, current lineup and index
   let currentLineup: player[] = [...starters.players];
+  const rosterList = men ? formattedRoster : formattedWRoster;
   let results: Lineup[] = [starters];
   let currentIndex = 0;
   let half = 1;
+  let quarter = 1;
   //parse through each line and extract the data.
   playData.forEach((play, playIndex) => {
     const {time, player, details} = getPlayComponents(play);
     const teamPlay =
       player &&
-      formattedRoster.find((person) => person.toUpperCase().includes(player))
+      rosterList.find((person) => person.toUpperCase().includes(player))
         ? true
         : false;
     const made = details.includes('made');
@@ -37,7 +40,7 @@ export const parse = (data: string): Lineup[] => {
           if (details.includes('substitution out')) {
             //we only care about our teams subs
             const rmIndex = currentLineup.findIndex(
-              (x) => x.name === findPlayer(player!).name
+              (x) => x.name === findPlayer(player!,men).name
             );
             if (rmIndex !== -1) {
               //remove the player
@@ -46,7 +49,7 @@ export const parse = (data: string): Lineup[] => {
               throw Error(`Error with substitution at ${time}`);
             }
           } else if (details.includes('substitution in')) {
-            const addPlayer = findPlayer(player);
+            const addPlayer = findPlayer(player,men);
             currentLineup.push(addPlayer);
           }
           //after subbing players in and out, make the lineup
@@ -127,10 +130,11 @@ export const parse = (data: string): Lineup[] => {
     } else {
       //cases where player is null
       if (details === 'END OF PERIOD') {
-        if (half === 1) {
+        if ((men && half === 1) || (!men && quarter <= 4)) {
           results[currentIndex].addTime('00:00');
-          results[currentIndex].addTime('20:00');
+          results[currentIndex].addTime(startTime);
           half = 2;
+          quarter++;
         } else {
           //end of the second or OT
           results[currentIndex].addTime('00:00');

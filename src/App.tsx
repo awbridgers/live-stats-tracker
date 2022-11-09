@@ -6,14 +6,16 @@ import Table from 'rc-table';
 import {cols} from './tableSetup';
 import {calcTime} from './util/calculateTime';
 import {calcTotal} from './util/calculateTotal';
+import Switch from 'react-switch';
 
 function App() {
   const [plays, setPlays] = useState<string>('');
   const [results, setResults] = useState<Lineup[]>([]);
   const [show, setShow] = useState<boolean>(false);
+  const [men, setMen] = useState<boolean>(true);
   const handleSubmit = () => {
-    const results = parse(plays);
-    console.log(results)
+    const results = parse(plays, men);
+    console.log(results);
     setResults(results);
     setShow(true);
   };
@@ -46,16 +48,31 @@ function App() {
   }
   return (
     <div className="App">
+      
       <textarea
         value={plays}
         onChange={(e) => setPlays(e.target.value)}
         className="textBox"
-        placeholder='Enter the play by play data here, starting with both teams starters.'
+        placeholder="Enter the play by play data here, starting with both teams starters."
       ></textarea>
       <button className="submit" type="button" onClick={handleSubmit}>
         Submit
       </button>
       <div style={{color: 'white'}}></div>
+      <div className = 'sliderDiv'>
+        <div style = {{color: men ? '#242525': 'white', fontSize: '24px'}}>Women</div>
+        <Switch
+          checked={men}
+          onChange={(checked) => setMen(checked)}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          borderRadius={6}
+          onColor = {'#CFB53B'}
+          offColor = {'#CFB53B'}
+          className = 'slider'
+        />
+        <div style = {{color: men ? 'white':'#242525', fontSize: '24px'}}>Men</div>
+      </div>
     </div>
   );
 }

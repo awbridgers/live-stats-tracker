@@ -1,3 +1,4 @@
+import { format } from 'path';
 import {player} from './types';
 import {timeToSeconds} from './util/fixTime';
 import {formatName} from './util/formatName';
@@ -89,7 +90,7 @@ export class Lineup {
           this.madeTwosFor += 1;
           this.paintPointsFor += paint ? 2 : 0;
           this.pointsFromTOFor += fromTO ? 2 : 0;
-          this.secondChanceFor += second ? 2 : 0
+          this.secondChanceFor += second ? 2 : 0;
         } else {
           this.missedTwosFor += 1;
         }
@@ -99,7 +100,7 @@ export class Lineup {
           this.madeTwosAgainst += 1;
           this.paintPointsAgainst += paint ? 2 : 0;
           this.pointsFromTOAgainst += fromTO ? 2 : 0;
-          this.secondChanceAgainst += second ? 2 : 0
+          this.secondChanceAgainst += second ? 2 : 0;
         } else {
           this.missedTwosAgainst += 1;
         }
@@ -109,8 +110,8 @@ export class Lineup {
         if (made) {
           this.pointsFor += 3;
           this.madeThreesFor += 1;
-          this.secondChanceFor += second ? 3 : 0
-          this.pointsFromTOFor += fromTO ? 3 : 0
+          this.secondChanceFor += second ? 3 : 0;
+          this.pointsFromTOFor += fromTO ? 3 : 0;
         } else {
           this.missedThreesFor += 1;
         }
@@ -118,8 +119,8 @@ export class Lineup {
         if (made) {
           this.pointsAgainst += 3;
           this.madeThreesAgainst += 1;
-          this.secondChanceAgainst += second ? 3 : 0
-          this.pointsFromTOAgainst += fromTO ? 3 : 0
+          this.secondChanceAgainst += second ? 3 : 0;
+          this.pointsFromTOAgainst += fromTO ? 3 : 0;
         } else {
           this.missedThreesAgainst += 1;
         }
@@ -138,7 +139,6 @@ export class Lineup {
   addTurnover = (teamPlay: boolean) => {
     const key = teamPlay ? 'turnoversFor' : 'turnoversAgainst';
     this[key] += 1;
-    
   };
   addAssist = (teamPlay: boolean) => {
     const key = teamPlay ? 'assistsFor' : 'assistsAgainst';
@@ -215,5 +215,22 @@ export const roster: player[] = [
   },
 ];
 
+export const womenRoster: player[] = [
+  {name: 'Alyssa Andrews', number: 0},
+  {name: 'Kaia Harrison', number: 2},
+  {name: 'Mack Maier', number: 3},
+  {name: 'Aliah McWhorter', number: 4},
+  {name: 'Malaya Cowles', number: 5},
+  {name: 'Raegyn Conley', number: 11},
+  {name: 'Kate Deeble', number: 12},
+  {name: 'Marta Morales', number: 13},
+  {name: 'Niyah Becker', number: 14},
+  {name: 'Olivia Summiel', number: 20},
+  {name: 'Elise Williams', number: 21},
+  {name: 'Jewel Spear', number: 24},
+  {name: 'Demeara Hinds', number: 25},
+  {name: 'Alexandria Scruggs', number: 32},
+];
 
 export const formattedRoster: string[] = roster.map((name) => formatName(name));
+export const formattedWRoster : string[] = womenRoster.map((name)=>formatName(name));
