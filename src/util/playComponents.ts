@@ -13,7 +13,7 @@ export const getPlayComponents = (play: string) =>{
   const [player] = rest.join(' ').match(/\d+(\s[A-Z]+)+/) || [null]
   const details = player ? play.split(player).pop() : play.split(time).pop()
   if(!details){
-    throw Error('Play details not found')
+    throw Error(`Play details not found at: ${play}` )
   }
   return {time, player, details}
 }
