@@ -150,19 +150,19 @@ export class Lineup {
 }
 
 export const roster: player[] = [
-  {name: 'Lucas Taylor', number: 0},
+  {name: 'Kevin Miller', number: 0},
   {
-    name: 'Tyree Appleby',
+    name: 'Marqus Marion',
     number: 1,
   },
   {name: 'Cameron Hildreth', number: 2},
 
   {
-    name: 'Daivien Williamson',
+    name: 'Efton Reid III',
     number: 4,
   },
   {
-    name: 'Jao Ituka',
+    name: 'Abramo Canka',
     number: 10,
   },
   {
@@ -170,12 +170,16 @@ export const roster: player[] = [
     number: 11,
   },
   {
-    name: 'Robert McCray',
+    name: 'Aaron Clark',
     number: 13,
   },
   {
-    name: 'Davion Bradford',
+    name: 'Parker Friedrichsen',
     number: 20,
+  },
+  {
+    name: 'Hunter Sallis',
+    number: 23,
   },
   {
     name: 'Zach Keller',
@@ -186,19 +190,20 @@ export const roster: player[] = [
     number: 30,
   },
   {
+    name: 'Jao Ituka',
+    number: 31,
+  },
+  {
     name: 'Matthew Marsh',
     number: 33,
   },
-  {
-    name: 'Bobi Klintman',
-    number: 34,
-  },
+  
   {
     name: 'RJ Kennah',
     number: 40,
   },
   {
-    name: 'Xiaolong Xu',
+    name: 'Vincent Ricchiuti',
     number: 45,
   },
   {
@@ -206,7 +211,7 @@ export const roster: player[] = [
     number: 51,
   },
   {
-    name: 'Grant van Beveren',
+    name: 'Will Underwood',
     number: 52,
   },
   {
@@ -217,17 +222,15 @@ export const roster: player[] = [
 
 export const womenRoster: player[] = [
   {name: 'Alyssa Andrews', number: 0},
+  {name: 'Makaela Quimby', number: 1},
   {name: 'Kaia Harrison', number: 2},
-  {name: 'Mack Maier', number: 3},
   {name: 'Aliah McWhorter', number: 4},
   {name: 'Malaya Cowles', number: 5},
   {name: 'Raegyn Conley', number: 11},
   {name: 'Kate Deeble', number: 12},
-  {name: 'Marta Morales', number: 13},
-  {name: 'Niyah Becker', number: 14},
-  {name: 'Olivia Summiel', number: 20},
+  {name: 'Rylie Theuerkauf', number: 14},
   {name: 'Elise Williams', number: 21},
-  {name: 'Jewel Spear', number: 24},
+  {name: 'Madisyn Jordan', number: 22},
   {name: 'Demeara Hinds', number: 25},
   {name: 'Alexandria Scruggs', number: 32},
 ];
