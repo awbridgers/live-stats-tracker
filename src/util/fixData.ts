@@ -3,7 +3,7 @@
 //text so that 1 seamless copy/paste can be used
 
 const gameDetails =
-  /(Official Basketball Play by Play)(.|\n)*?(Officials: .+)/gi;
+  /(Official Basketball Play by Play)(.|\n)*?(Officials:.*)/gi;
 const header = /(Game Time)(.+)(Score Diff)(.+)/gi;
 const gameTime = /\d+:\d+/;
 
