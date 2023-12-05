@@ -6,6 +6,7 @@ If you would like to use this app for your own team, you will need  to clone it 
 Make sure each player in the roster array is of form:  ```{name: 'Full Name', number: 0}```
 #### Instructions
 1. Find the Official Box Score from the game powered by LiveStats. This can often be found on the team's schedule on their website listed as *Box Score (PDF)* or *PDF Box Score*.  Example:
+
 ![Example](src/images/pdfBoxScore.png)
 
 2. Open the Box Score and scroll down to the start of the play by play information. Copy **EVERYTHING** under *Quarter Starters* up to and including the end of the half, denoted by *END OF PERIOD*. Copy and paste that information into the text box of the tracker.
