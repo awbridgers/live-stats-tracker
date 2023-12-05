@@ -14,6 +14,18 @@ Game Time Hokies Score Diff Deacs
 12:03 11 WHITT C substitution in
 12:03 20 SY K substitution in`;
 
+export const sampleSideArmData = `Miller,Kevin Carr,Andrew Sallis,Hunter Marsh,Matthew Hildreth,Cameron
+19:42 MISS JUMPER by TCHEWA,RUSSEL
+REBOUND DEF by MARSH,MATTHEW --
+MISS JUMPER by SALLIS,HUNTER(in the paint) 19:33
+-- REBOUND DEF by ABDUR-RAHIM,JABRI
+FOUL by SALLIS,HUNTER 19:29
+FOUL by MILLER,KEVIN 19:15
+19:06 TURNOVER by ABDUR-RAHIM,JABRI
+18:49 FOUL by DEMARY JR.,SILAS
+MISS 3PTR by MILLER,KEVIN 18:36
+-- REBOUND DEF by THOMASSON,NOAH`
+
 export const sampleData = `Hokies 0 Cattoor H 4 Alleyne N 5 Murphy S 22 Aluma K 25 Mutts J
 Deacs 0 LaRavia J 1 Mucius I 4 Williamson D 13 Walton D 31 Williams A
 Game Time Hokies Score Diff Deacs

@@ -7,14 +7,16 @@ import {cols} from './tableSetup';
 import {calcTime} from './util/calculateTime';
 import {calcTotal} from './util/calculateTotal';
 import Switch from 'react-switch';
+import { sampleSideArmData } from './sampleData';
 
 function App() {
   const [plays, setPlays] = useState<string>('');
   const [results, setResults] = useState<Lineup[]>([]);
   const [show, setShow] = useState<boolean>(false);
   const [men, setMen] = useState<boolean>(true);
+  const [liveStats, setLiveStats] = useState<boolean>(true)
   const handleSubmit = () => {
-    const results = parse(plays, men);
+    const results = parse(plays, men, liveStats);
     console.log(results);
     setResults(results);
     setShow(true);
@@ -72,6 +74,20 @@ function App() {
           className = 'slider'
         />
         <div style = {{color: men ? 'white':'#242525', fontSize: '24px'}}>Men</div>
+      </div>
+      <div className = 'sliderDiv'>
+        <div style = {{color: liveStats ? '#242525': 'white', fontSize: '24px'}}>SideArm</div>
+        <Switch
+          checked={liveStats}
+          onChange={(checked) => setLiveStats(checked)}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          borderRadius={6}
+          onColor = {'#CFB53B'}
+          offColor = {'#CFB53B'}
+          className = 'slider'
+        />
+        <div style = {{color: liveStats ? 'white':'#242525', fontSize: '24px'}}>LiveStats</div>
       </div>
     </div>
   );
