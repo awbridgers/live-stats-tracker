@@ -10,11 +10,7 @@ Make sure each player in the roster array is of form:  ```{name: 'Full Name', nu
 ![Example](src/images/pdfBoxScore.png)
 
 2. Open the Box Score and scroll down to the start of the play by play information. Copy **EVERYTHING** under *Quarter Starters* up to and including the end of the half, denoted by *END OF PERIOD*. Copy and paste that information into the text box of the tracker.
-3. For the second half and overtim
-
-
-
-e, copy from the time of the first play through the end of the period, denoted by either *END OF PERIOD* or *END OF GAME*. Do not copy the starter information for the second half or OT, that info is only needed for the initial lineup on the court. Paste that information in the text box as well.
+3. For the second half and overtime, copy from the time of the first play through the end of the period, denoted by either *END OF PERIOD* or *END OF GAME*. Do not copy the starter information for the second half or OT, that info is only needed for the initial lineup on the court. Paste that information in the text box as well.
 4. Press *Submit* 
 
 Here is a full example:
