@@ -23,7 +23,7 @@ export const fixData = (data: string, liveStats: boolean) => {
     .replace(gameDetails, '')
     .replace(header, '')
     .split(/\n/);
-  console.log(playArray);
+  //console.log(playArray);
   const startersArray = playArray.splice(0, starterLength);
   let results: string[] = [];
   let previous = '';
