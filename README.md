@@ -14,7 +14,7 @@ Make sure each player in the roster array is of form:  ```{name: 'Full Name', nu
 
 Here is a full example:
 
-![example](https://thumbs.gfycat.com/FearfulQuickHake-size_restricted.gif)
+https://imgur.com/a/TlgHnoJ
 
 ___
 ### Author
