@@ -20,9 +20,9 @@ https://github.com/awbridgers/live-stats-tracker/assets/16521414/430c47f3-cb63-4
 #### For SideArm
 1. If the PDF Box Score was made using the SideArm program instead of LiveStats, you have to enter the starting lineup manually using the SideArm Format (LASTNAME,FIRSTNAME). Enter the 5 players' names manually with a space between them.
 2. Copy the play by play data until the end of the first half and past it into the box.
-3. *** Manually enter 'END OF PERIOD' on the next line of the input box.***
+3. **Manually enter 'END OF PERIOD' on the next line of the input box.**
 4. Copy the second half data and past it into the box.
-5. *** Manually enter 'END OF GAME' at the end of the game. ***
+5. **Manually enter 'END OF GAME' at the end of the game.**
 6. Press *Submit*
 ___
 ### Author
