@@ -33,3 +33,16 @@ export const findPlayer = (shortHand: string, men: boolean): player => {
   }
   return player;
 };
+
+//find Player for sideArm play by play data
+//this goes from LAST,FIRST => player object
+export const findSideArmPlayer = (name: string, men : boolean):player =>{
+  const rosterList = men ? roster: womenRoster;
+  const [lastName, firstName] = name.split(',');
+  const fixedName = `${firstName.toLowerCase()} ${lastName.toLowerCase()}`
+  const player = rosterList.find((x)=>fixedName === x.name.toLowerCase());
+  if(!player){
+    throw Error (`No player ${fixedName} found`)
+  }
+  return player
+}

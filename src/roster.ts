@@ -235,5 +235,16 @@ export const womenRoster: player[] = [
   {name: 'Alexandria Scruggs', number: 32},
 ];
 
-export const formattedRoster: string[] = roster.map((name) => formatName(name));
-export const formattedWRoster : string[] = womenRoster.map((name)=>formatName(name));
+//Different rosters for the different play by play sources to make for quick searching;
+//Live Stats uses # LAST FIRST
+//SideArm uses LAST,FIRST
+export const liveStatsRoster: string[] = roster.map((name) => formatName(name));
+export const liveStatsWRoster : string[] = womenRoster.map((name)=>formatName(name));
+export const sideArmRoster : string[] = roster.map((player)=>{
+  const [firstName, ...lastName] = player.name.split(' ');
+  return `${lastName.join(' ')},${firstName}`
+})
+export const sideArmWRoster : string[] = womenRoster.map((player)=>{
+  const [firstName, ...lastName] = player.name.split(' ');
+  return `${lastName.join(' ')},${firstName}`
+})
