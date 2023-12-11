@@ -158,7 +158,7 @@ export const roster: player[] = [
   {name: 'Cameron Hildreth', number: 2},
 
   {
-    name: 'Efton Reid III',
+    name: 'Efton Reid',
     number: 4,
   },
   {
