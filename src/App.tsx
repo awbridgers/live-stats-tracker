@@ -50,6 +50,9 @@ function App() {
   }
   return (
     <div className="App">
+      <div className = 'title'>
+        Live Stats Tracker
+      </div>
       
       <textarea
         value={plays}

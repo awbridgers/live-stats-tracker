@@ -17,6 +17,11 @@
   border: none;
   outline: none;
 }
+.title{
+  font-size: 45px;
+  color: white;
+  margin: 0px 0px 50px 0px;
+}
 .submit{
   height: 50px;
   width:150px;
